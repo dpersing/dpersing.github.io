@@ -1,8 +1,12 @@
 body {
-	background: url(../img/svc_new_logo_75.png) no-repeat bottom left;
+	max-width: 1024px;
+	margin: 10px auto;
+}
+
+.hero-unit {
+	background: url(../img/svc-logo.png) #eee no-repeat bottom right;
 }
 
 footer {
-	height: 66px;
-	padding: 20px 0 0 80px;
+	padding: 20px 0 20px 0;
 }
