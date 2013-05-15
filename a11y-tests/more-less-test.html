@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <title>Accessible "more"/"less" interaction</title>
+
+	<!-- this example is adapted from method 3 here: http://www.456bereastreet.com/lab/keyboard-clickable/ -->
+	
+	<!-- this method has been tested with:
+		* VoiceOver with Chrome on OSX: reads <p> that contains visually hidden text continuously
+		*	VoiceOver with Safari on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text
+		*	Voiceover with Firefox on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text
+		*	NVDA with Firefox, IE9, and IE8 on Windows 7
+		*	JAWS with Firefox, IE9, and IE8 on Windows 7
+	 -->
+
+	<style>
+		/* resets */
+		body { max-width: 600px; }
+	
+		/* this style visually hides content but allows it to be read by AT, instead of using display:none; which hides it from AT altogether */
+			.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+		
+		/* example styles to make the interactive "link" text look like a link */
+		.linklike { color: rgb(0, 0, 238); font-weight: bold; display: inline-block; }
+		
+		/* creates a standard interactivity cue for mouse users and visual difference for keyboard users and mouse users; cursor: hand; is for Safari */
+		.linklike:hover, .linklike:focus { cursor: pointer; cursor: hand; text-decoration: underline; outline: 0; }
+		
+		/* inactive/untriggered "link" text for users not using screenreaders or similar tech */
+		.linklike:after { content: "more"; }
+		
+		/* appended to change active/triggered "link" text for users not using screenreaders or similar tech */
+		.less:after { content: "less"; }
+	</style>
+</head>
+ 
+<body>
+ 
+<h1>Accessibility for "more"/"less" interactions</h1>
+
+<p>Sometimes visual designs will call for "more"/"less" link interactions to display and hide parts of long sections of text. This is typically done to conserve vertical space, but can create challenges for developers to make these interactions accessible to users of AT.</p>
+ 
+<p id="expanding-text">Here's a block of text that is visually expanded when you fire the trigger "link." The trigger "link" is actually an empty span added via javascript that receives standard, link-like keyboard and mouse interactions. <span id="more-content" class="visuallyhidden">This text is visually displayed for sighted users when the "link" is fired. It is normally visually hidden but is always available to AT without the need to interact with the "link." In fact, the "link" will be skipped by most AT since it has no content and does not read as interactive.</span>
+</p>
+  
+	<!-- jquery for example -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+	<!-- script for creating the more/less "link" for sighted users interacting with the mouse or keyboard -->
+	<script type="text/javascript">
+		$('<span>', { // create an empty span with no text and nothing that indicates it is interactive to AT
+						'class': 'linklike', // class for styles
+						// 'aria-hidden': 'true', // for newer AT that may read the more/less text in the browser
+						tabindex: '0', // making the <span> receive keyboard focus like a link
+						click: function() { // firing the interaction
+							$("#more-content").toggleClass("visuallyhidden").focus(); // remove the class that's visually hiding the new content
+							$(".linklike").toggleClass("less").focus(); // add .less to the span to change the "link" text when it's fired
+						},
+						keydown: function(e) { // tie standard keyboard interactions to the "link"
+							var code = e.which;
+							if ((code === 13) || (code === 32)) { // 13 is enter/return and 32 is spacebar
+								$(this).click(); // fire the interaction with these keys
+							}
+						}
+					}).appendTo($('#expanding-text')); // container to add the "link" to
+	</script>
+ 
+</body>
+</html>
