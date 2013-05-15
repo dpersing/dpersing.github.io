@@ -7,15 +7,15 @@
 	<!-- this example is adapted from method 3 here: http://www.456bereastreet.com/lab/keyboard-clickable/ -->
 	
 	<!-- this method has been tested with:
-		* VoiceOver with Chrome on OSX: reads <p> that contains visually hidden text continuously
-		*	VoiceOver with Safari on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text
-		*	Voiceover with Firefox on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text
-		*	NVDA with Firefox, IE9, and IE8 on Windows 7
-		*	JAWS with Firefox, IE9, and IE8 on Windows 7
+		* VoiceOver with Chrome on OSX: reads <p> that contains visually hidden text continuously; does not read the trigger "link" if navigation with Tab
+		*	VoiceOver with Safari on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text; if the <span> is reached via the Tab key, it reads the full paragraph
+		*	Voiceover with Firefox on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text; if the <span> is reached via the Tab key, it reads as "group"
+		*	NVDA with Firefox and IE9 on Windows 7
+		*	JAWS with Firefox and IE9 on Windows 7
 	 -->
 
 	<style>
-		/* resets */
+		/* just for easier reading */
 		body { max-width: 600px; }
 	
 		/* this style visually hides content but allows it to be read by AT, instead of using display:none; which hides it from AT altogether */
