@@ -8,10 +8,12 @@
 	
 	<!-- this method has been tested with:
 		* VoiceOver with Chrome on OSX: reads <p> that contains visually hidden text continuously; does not read the trigger "link" if navigation with Tab
-		*	VoiceOver with Safari on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text; if the <span> is reached via the Tab key, it reads the full paragraph
+		*	VoiceOver with Safari on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text; if the <span> is reached via the Tab key, it reads as "group"
 		*	Voiceover with Firefox on OSX: stops reading the <p> at the <span> wrapping the visually hidden text but continues with standard keyboard inputs to keep reading the next block of text; if the <span> is reached via the Tab key, it reads as "group"
-		*	NVDA with Firefox and IE9 on Windows 7
-		*	JAWS with Firefox and IE9 on Windows 7
+		*	NVDA with Firefox on Windows 7: "more" reads as "clickable" when receiving Tab or arrows; firing it works as expected
+		*	NVDA with IE9 on Windows 7: link reads "blank" on focus; "link" is read before additional text
+		*	JAWS with Firefox and on Windows 7: Reads the test link text again when reaching the "more" link; firing the "more" link with JAWS running fires the test link; reads the "invisible" text as expected.
+		*	JAWS with IE9 on Windows 7: Reads the "invisible" text as expected; reads the "invisible" text when the "more" link is fired and when it receives focus
 	 -->
 
 	<style>
