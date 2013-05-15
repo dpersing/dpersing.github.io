@@ -38,15 +38,18 @@
 Here's a generic <a href="http://example.com/">link</a> to make sure that tabbing works okay.
  
 <div id="expanding-text">
-	<p>Here's a block of text that is visually expanded when you fire the trigger link.</p>
+	<p>Next is a block of text that is visually expanded when you fire the trigger link. This only works with block-level elements.</p>
 	
 	<div id="more-content" class="hidden">		
-		<p id="new-focus">This text is displayed when the link is fired, and given focus by screen readers. Right now this has been tested in the following browser/AT combos:</p>
+		<p id="new-focus">This text is displayed when the link is fired, and given focus by screen readers. Right now this has been tested in the following browser/AT combos with the following results:</p>
 		
 		<ul>
+			<li>Safari/VoiceOver/OSX: behaves as expected</li>
+			<li>IE9/JAWS/Windows 7: behaves as expected</li>
+			<li>Firefox/VoiceOver/OSX: sends/receives focus correctly but does not automatically read; will automatically read if the link is fired a second time</li>
 			<li>Chrome/VoiceOver/OSX: Sends/receives focus correctly and automatically reads the first chunk of text TWICE if it's a block-level element
 			<li>Safari/VoiceOver/OSX: Sends/receives focus correctly</li>
-			<li>Firefox/VoiceOver/OSX: Sends/receives focus correctly</li>
+			<li>Firefox/VoiceOver/OSX: Sends/receives focus correctly but does not read automatically</li>
 		</ul>
 	</div>
 	
