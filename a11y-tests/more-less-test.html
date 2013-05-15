@@ -51,7 +51,7 @@
 	<script type="text/javascript">
 		$('<span>', { // create an empty span with no text and nothing that indicates it is interactive to AT
 						'class': 'linklike', // class for styles
-						// 'aria-hidden': 'true', // for newer AT that may read the more/less text in the browser
+						'aria-hidden': 'true', // for newer AT that may read the more/less text in the browser
 						tabindex: '0', // making the <span> receive keyboard focus like a link
 						click: function() { // firing the interaction
 							$("#more-content").toggleClass("visuallyhidden").focus(); // remove the class that's visually hiding the new content
