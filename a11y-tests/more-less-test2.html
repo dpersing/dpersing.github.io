@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"> 
+<head>
+  <meta charset="utf-8">
+  <title>Accessible "more"/"less" interaction</title>
+
+	<!-- this example is adapted from method 3 here: http://www.456bereastreet.com/lab/keyboard-clickable/ -->
+	
+	<!-- this method has been tested with:
+		* VoiceOver with Chrome on OSX: 
+	 -->
+
+	<style>
+		/* just for easier reading */
+		body { max-width: 600px; }
+		
+		/* hide the text to display visually and from the page flow */
+		.hidden { display: none; visibility: hidden; }
+		
+		/* only apply the actual focus outline to interactive elements...
+		:focus { outline: 0; }
+		*/
+		
+		/* ...for example */
+		a:focus { outline: 1px dotted; }
+		
+		/* this style is applied just to show the new text more effectively */
+		#more-content { color: #ff0000; }
+	</style>
+</head>
+ 
+<body>
+ 
+<h1>Accessibility for "more"/"less" interactions</h1>
+
+<p>Sometimes visual designs will call for "more"/"less" link interactions to display and hide parts of long sections of text. This is typically done to conserve vertical space, but can create challenges for developers to make these interactions accessible to users of AT.</p>
+
+Here's a generic <a href="http://example.com/">link</a> to make sure that tabbing works okay.
+ 
+<div id="expanding-text">
+	<p>Here's a block of text that is visually expanded when you fire the trigger link.</p>
+	
+	<div id="more-content" class="hidden">
+		<p>This text is displayed when the link is fired, and given focus by screen readers. Right now this has been tested in the following browser/AT combos:</p>
+		
+		<ul>
+			<li>Chrome/VoiceOver/OSX: Sends/receives focus correctly and automatically reads the first chunk of text TWICE if it's a block-level element
+			<li>Safari/VoiceOver/OSX: Sends/receives focus correctly</li>
+			<li>Firefox/VoiceOver/OSX: Sends/receives focus correctly</li>
+		</ul>
+	</div>
+	
+	<a href="#" id="trigger" role="button">more link with unique text</a>
+</div>
+  
+	<!-- jquery for example -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+	<script type="text/javascript">
+			$(document).ready(function() {
+				$('#trigger').click(function(e) { // tie the show/hide event to the link
+					e.preventDefault(); // keep the link from actually navigating
+					$('#more-content').toggleClass('hidden').focus(); // make the new content visible by removing the class
+					$(this).blur; // remove focus from the link
+					$('#more-content').attr('tabindex', '-1').focus(); // send focus to the new content
+					$(this).text($(this).text() == 'more link with unique text' ? 'less link with unique text' : 'more link with unique text' ); // change your link text
+				})
+			});
+		</script>
+ 
+</body>
+</html>
