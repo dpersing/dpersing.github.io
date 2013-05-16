@@ -17,9 +17,8 @@
 		/* hide the text to display visually and from the page flow */
 		.hidden { display: none; visibility: hidden; }
 		
-		/* only apply the actual focus outline to interactive elements...
-		:focus { outline: 0; }
-		*/
+		/* only apply the actual focus outline to interactive elements... */
+		:focus { outline: none; }
 		
 		/* ...for example */
 		a:focus { outline: 1px dotted; }
@@ -45,11 +44,14 @@ Here's a generic <a href="http://example.com/">link</a> to make sure that tabbin
 		
 		<ul>
 			<li>Safari/VoiceOver/OSX: behaves as expected</li>
+			<li>Chrome/VoiceOver/OSX: behaves as expected</li>
+			<li>IE9/NVDA/Windows 7: behaves as expected</li>
+			<li>Firefox/NVDA/Windows 7: behaves as expected</li>
 			<li>IE9/JAWS/Windows 7: behaves as expected</li>
+			<li>Firefox/JAWS/Windows 7: behaves as expected</li>
+			<li>IE9/Window-Eyes/Windows 7: behaves as expected</li>
+			<li>Firefox/Window-Eyes/Windows 7: sends/receives focus correctly but does not automatically read</li>
 			<li>Firefox/VoiceOver/OSX: sends/receives focus correctly but does not automatically read; will automatically read if the link is fired a second time</li>
-			<li>Chrome/VoiceOver/OSX: Sends/receives focus correctly and automatically reads the first chunk of text TWICE if it's a block-level element
-			<li>Safari/VoiceOver/OSX: Sends/receives focus correctly</li>
-			<li>Firefox/VoiceOver/OSX: Sends/receives focus correctly but does not read automatically</li>
 		</ul>
 	</div>
 	
