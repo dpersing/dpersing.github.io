@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Accessible "more"/"less" interaction</title>
 
-	<!-- this example is adapted from method 3 here: http://www.456bereastreet.com/lab/keyboard-clickable/ -->
+  <!-- this example is adapted from method 3 here: http://www.456bereastreet.com/lab/keyboard-clickable/ -->
 	
 	<!-- this method has been tested with:
 		* VoiceOver with Chrome on OSX: 
@@ -15,7 +15,7 @@
 		body { max-width: 600px; }
 		
 		/* hide the text to display visually and from the page flow */
-		.hidden { display: none; }
+		.hidden { display: none; visibility: hidden; }
 		
 		/* only apply the actual focus outline to interactive elements... */
 		:focus { outline: none; }
@@ -23,10 +23,8 @@
 		/* ...for example */
 		a:focus { outline: 1px dotted; }
 		
-		p { display: inline; }
-		
 		/* this style is applied just to show the new text more effectively */
-		#new-focus { color: #ff0000; }
+		#more-content { color: #ff0000; }
 	</style>
 </head>
  
@@ -34,27 +32,31 @@
  
 <h1>Accessibility for "more"/"less" interactions</h1>
 
-	<p>Sometimes visual designs will call for "more"/"less" link interactions to display and hide parts of long sections of text. This is typically done to conserve vertical space, but can create challenges for developers to make these interactions accessible to users of AT.</p>
+<p>Sometimes visual designs will call for "more"/"less" link interactions to display and hide parts of long sections of text. This is typically done to conserve vertical space, but can create challenges for developers to make these interactions accessible to users of AT.</p>
 
-	<p>Here's a generic <a href="http://example.com/">link</a> to make sure that tabbing works okay.</p>
-	
-	<ul>
-		<li>Safari/VoiceOver/OSX: behaves as expected</li>
-		<li>Chrome/VoiceOver/OSX: behaves as expected</li>
-		<li>IE9/NVDA/Windows 7: behaves as expected</li>
-		<li>Firefox/NVDA/Windows 7: behaves as expected</li>
-		<li>IE9/JAWS/Windows 7: behaves as expected</li>
-		<li>Firefox/JAWS/Windows 7: behaves as expected</li>
-		<li>IE9/Window-Eyes/Windows 7: behaves as expected</li>
-		<li>Firefox/Window-Eyes/Windows 7: sends/receives focus correctly but does not automatically read</li>
-		<li>Firefox/VoiceOver/OSX: sends/receives focus correctly but does not automatically read; will automatically read if the link is fired a second time</li>
-	</ul>
-	
+Here's a generic <a href="http://example.com/">link</a> to make sure that tabbing works okay.
+ 
+<div id="expanding-text">
 	<p>Next is a block of text that is visually expanded when you fire the trigger link. This only works with block-level elements.</p>
 	
-	<p id="new-focus" class="hidden">This text is displayed when the link is fired, and given focus by screen readers. Right now this has been tested in the following browser/AT combos with the following results:</p>
+	<div id="more-content" class="hidden">		
+		<p id="new-focus">This text is displayed when the link is fired, and given focus by screen readers. Right now this has been tested in the following browser/AT combos with the following results:</p>
+		
+		<ul>
+			<li>Safari/VoiceOver/OSX: behaves as expected</li>
+			<li>Chrome/VoiceOver/OSX: behaves as expected</li>
+			<li>IE9/NVDA/Windows 7: behaves as expected</li>
+			<li>Firefox/NVDA/Windows 7: behaves as expected</li>
+			<li>IE9/JAWS/Windows 7: behaves as expected</li>
+			<li>Firefox/JAWS/Windows 7: behaves as expected</li>
+			<li>IE9/Window-Eyes/Windows 7: behaves as expected</li>
+			<li>Firefox/Window-Eyes/Windows 7: sends/receives focus correctly but does not automatically read</li>
+			<li>Firefox/VoiceOver/OSX: sends/receives focus correctly but does not automatically read; will automatically read if the link is fired a second time</li>
+		</ul>
+	</div>
 	
 	<a href="#" id="trigger" role="button">more link with unique text</a>
+</div>
   
 	<!-- jquery for example -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -63,7 +65,7 @@
 			$(document).ready(function() {
 				$('#trigger').click(function(e) { // tie the show/hide event to the link
 					e.preventDefault(); // keep the link from actually navigating
-					$('#new-focus').toggleClass('hidden').focus(); // make the new content visible by removing the class
+					$('#more-content').toggleClass('hidden').focus(); // make the new content visible by removing the class
 					$(this).blur; // remove focus from the link
 					$('#new-focus').attr('tabindex', '-1').focus(); // send focus to the new content
 					$(this).text($(this).text() == 'more link with unique text' ? 'less link with unique text' : 'more link with unique text' ); // change your link text
