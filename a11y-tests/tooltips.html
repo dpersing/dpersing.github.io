@@ -77,7 +77,7 @@
 
 			<a href="#tooltip2" class="trigger" id="tooltip2trigger" aria-describedby="tooltip2">Help with y</a>
 
-			<div class="tooltip hidden" id="tooltip2" role="tooltip">
+			<div class="tooltip hidden" id="tooltip2" role="tooltip" aria-live="assertive">
 				Here is the second tooltip. This one has an image:
 				<img src="http://placekitten.com/g/200/100" alt="a small black and white photo of a kitten">
 			</div>
@@ -145,13 +145,18 @@
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip when link has Tab focus</th>
-					<td>-</td>
-					<td>-</td>
+					<td>No</td>
+					<td>Yes</td>
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip when link has reading focus</th>
-					<td>-</td>
-					<td>-</td>
+					<td>No</td>
+					<td>Yes</td>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip next after trigger link</th>
+					<td>Yes</td>
+					<td>Yes</td>
 				</tr>
 			</table>
 			
