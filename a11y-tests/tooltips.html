@@ -47,9 +47,9 @@
 		
 			<ul>
 				<li>VoiceOver</li>
-				<li>JAWS ___</li>
-				<li>NVDA ___</li>
-				<li>Window-Eyes ___</li>
+				<li>JAWS 14.0</li>
+				<li>NVDA 2012.3.1</li>
+				<li>Window-Eyes 8.2</li>
 			</ul>
 		
 			<ul>
@@ -77,7 +77,7 @@
 
 			<a href="#tooltip2" class="trigger" id="tooltip2trigger" aria-describedby="tooltip2">Help with y</a>
 
-			<div class="tooltip hidden" id="tooltip2" role="tooltip" aria-live="assertive">
+			<div class="tooltip hidden" id="tooltip2" role="tooltip">
 				Here is the second tooltip. This one has an image:
 				<img src="http://placekitten.com/g/200/100" alt="a small black and white photo of a kitten">
 			</div>
@@ -124,6 +124,7 @@
 					<th scope="col">JAWS Behavior</th>
 					<th scope="col">IE9</th>
 					<th scope="col">Firefox</th>
+					<th scope="col">Chrome</th>
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip when link has Tab focus</th>
@@ -132,6 +133,13 @@
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip when link has reading focus</th>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip next after trigger link</th>
+					<td>-</td>
 					<td>-</td>
 					<td>-</td>
 				</tr>
@@ -142,37 +150,52 @@
 					<th scope="col">NVDA Behavior</th>
 					<th scope="col">IE9</th>
 					<th scope="col">Firefox</th>
+					<th scope="col">Chrome</th>
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip when link has Tab focus</th>
 					<td>No</td>
+					<td>Yes</td>
 					<td>Yes</td>
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip when link has reading focus</th>
 					<td>No</td>
 					<td>Yes</td>
+					<td>No</td>
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip next after trigger link</th>
+					<td>Yes<sup>1</sup></td>
 					<td>Yes</td>
 					<td>Yes</td>
 				</tr>
 			</table>
+			
+			<p><sup>1</sup> Tooltip visually disappears while it is read, since focus is removed from the trigger.</p>
 			
 			<table>
 				<tr>
 					<th scope="col">Window-Eyes Behavior</th>
 					<th scope="col">IE9</th>
 					<th scope="col">Firefox</th>
+					<th scope="col">Chrome</th>
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip when link has Tab focus</th>
 					<td>-</td>
 					<td>-</td>
+					<td>-</td>
 				</tr>
 				<tr>
 					<th scope="row">Reads tooltip when link has reading focus</th>
+					<td>-</td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip next after trigger link</th>
+					<td>-</td>
 					<td>-</td>
 					<td>-</td>
 				</tr>
@@ -183,14 +206,14 @@
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script>
 	$(document).ready(function(){
-		$(".trigger").focus(function () { // for each element with class "trigger"...
-			$(this).click(function(e) { // prevent firing the link
+		$(".trigger").bind("mouseenter focus mouseleave", function() { // on focus or hover for elements with class "trigger"...
+			$(this).click(function(e) { // ...prevent firing the link if it's clicked...
 				e.preventDefault();
 			});
-		  $(this).next(".tooltip").toggleClass('hidden'); // ...display the next element with class "tooltip" on mouseover or keyboard focus
+		  $(this).next(".tooltip").toggleClass('hidden'); // ...and display the next element with class "tooltip"
 		});
 		$(".trigger").blur(function () { // then on blur...
-		  $(this).next(".tooltip").toggleClass('hidden'); // ...hide the tooltip
+		  $(this).next(".tooltip").toggleClass('hidden'); // ...then hide the tooltip on blur
 		});
 	});
 	</script>
