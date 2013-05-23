@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Tooltip tests</title>
+		<!-- in the style of http://webaim.org/temp/tooltip.htm -->
+		
+		<style>
+			/* for presentation only */
+			ul { display: inline-block; vertical-align: top; }
+			
+			section { position: relative; }
+			
+			table { margin: 0 0 20px 0; }
+			
+			th { text-align: left; }
+			
+			.tooltip {
+				border: 5px solid rgba(204, 0, 0, 1);
+				background: rgba(255, 255, 255, 0.8);
+				padding: 20px;
+				width: 200px;
+				position: absolute;
+				left: 100px;
+				top: 0;
+				z-index: 100;
+			}
+			
+			/* hiding tooltips; this class is toggled via js */
+			.hidden {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Tooltip tests</h1>
+		
+		<p>Expected behavior is based on that <a href="http://www.w3.org/WAI/PF/aria-practices/#AuthDefKeys" title="WAI-ARIA 1.0 Authoring Practices">currently prescribed for the ARIA tooltip role</a>.</p>
+		
+		<section>
+			<h2>Test OSes, Screenreaders, and Browsers</h2>
+		
+			<ul>
+				<li>OSX 10.8.3</li>
+				<li>Windows 7 Ultimate</li>
+			</ul>
+		
+			<ul>
+				<li>VoiceOver</li>
+				<li>JAWS ___</li>
+				<li>NVDA ___</li>
+				<li>Window-Eyes ___</li>
+			</ul>
+		
+			<ul>
+				<li>Safari 6.0.4 on OSX</li>
+				<li>Chrome 26.0.1410.65 on OSX</li>
+				<li>Chrome ___ on Windows</li>
+				<li>Firefox 21.0 on OSX</li>
+				<li>Firefox ___ on Windows</li>
+				<li>IE9 on Windows</li>
+			</ul>
+		</section>
+		
+		<section>
+			<h2>Link trigger</h2>
+
+			<a href="#tooltip1" class="trigger" id="tooltip1trigger" aria-describedby="tooltip1">Help with x</a>
+
+			<div class="tooltip hidden" id="tooltip1" role="tooltip">
+				Here is the first tooltip. Any type of HTML can live in here.
+			</div>
+		</section>
+		
+		<section>
+			<h2>Another link trigger</h2>
+
+			<a href="#tooltip2" class="trigger" id="tooltip2trigger" aria-describedby="tooltip2">Help with y</a>
+
+			<div class="tooltip hidden" id="tooltip2" role="tooltip">
+				Here is the second tooltip. This one has an image:
+				<img src="http://placekitten.com/g/200/100" alt="a small black and white photo of a kitten">
+			</div>
+			
+			<p><a href="http://example.com">A control link</a></p>
+		</section>
+		
+		<section>
+			<h2>Findings Summary</h2>
+			
+			<h3>OSX</h3>
+			
+			<table>
+				<tr>
+					<th scope="col">VoiceOver Behavior</th>
+					<th scope="col">Safari</th>
+					<th scope="col">Chrome</th>
+					<th scope="col">Firefox</th>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip text as Help Text when link has Tab focus</th>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>No</td>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip text as Help Text when link has VO reading focus</th>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>No</td>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip text as next VO readable element after link</th>
+					<td>Yes</td>
+					<td>Yes</td>
+					<td>Yes</td>
+				</tr>
+			</table>
+			
+			<h3>Windows</h3>
+			
+			<table>
+				<tr>
+					<th scope="col">JAWS Behavior</th>
+					<th scope="col">IE9</th>
+					<th scope="col">Firefox</th>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip when link has Tab focus</th>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip when link has reading focus</th>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+			</table>
+			
+			<table>
+				<tr>
+					<th scope="col">NVDA Behavior</th>
+					<th scope="col">IE9</th>
+					<th scope="col">Firefox</th>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip when link has Tab focus</th>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip when link has reading focus</th>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+			</table>
+			
+			<table>
+				<tr>
+					<th scope="col">Window-Eyes Behavior</th>
+					<th scope="col">IE9</th>
+					<th scope="col">Firefox</th>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip when link has Tab focus</th>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<th scope="row">Reads tooltip when link has reading focus</th>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+			</table>
+		</section>
+	</body>
+	
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script>
+	$(document).ready(function(){
+		$(".trigger").focus(function () { // for each element with class "trigger"...
+			$(this).click(function(e) { // prevent firing the link
+				e.preventDefault();
+			});
+		  $(this).next(".tooltip").toggleClass('hidden'); // ...display the next element with class "tooltip" on mouseover or keyboard focus
+		});
+		$(".trigger").blur(function () { // then on blur...
+		  $(this).next(".tooltip").toggleClass('hidden'); // ...hide the tooltip
+		});
+	});
+	</script>
+</html>
