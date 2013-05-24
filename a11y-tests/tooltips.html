@@ -65,8 +65,9 @@
 		<section>
 			<h2>Link trigger</h2>
 
+			<!-- aria-describedby is needed for VoiceOver on OSX to read the tooltip as help text -->
 			<a href="#tooltip1" class="trigger" id="tooltip1trigger" aria-describedby="tooltip1">Help with x</a>
-
+			
 			<div class="tooltip hidden" id="tooltip1" role="tooltip">
 				Here is the first tooltip. Any type of HTML can live in here.
 			</div>
