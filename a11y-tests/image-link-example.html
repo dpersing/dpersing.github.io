@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Image Link Examples</title>
+		<meta charset="UTF-8">
+	</head>
+	
+	<style>	
+		h2, p { clear: both; /* for display purposes */ }
+		
+		.floated { float: left; /* to mimic current implementation */ }
+		
+		.block-300-400 { display: block; width: 300px; height: 400px; /* styles for link wrapped around a floated block-level element 300px wide and 400px tall */ }
+	</style>
+	<body>
+		<h1>Image Link Examples</h1>
+		
+		<p>Here's <a href="class="block-300-400"">a regular unstyled link</a> that will receive keyboard focus and visually display that focus with browser defaults.</p>
+		
+		<h2>Un-floated image link with no defined link area</h2>
+		
+		<p>This image and its link are not styled, so browsers will interpret its link as wrapping the image and display keyboard focus accordingly.</p>
+		
+		<a href="http://example.com/"><img src="http://placekitten.com/200/300" width="200" height="300"></a>
+		
+		<h2>Floated image link with no defined link area</h2>
+		
+		<p>Some browsers will interpret this link to have 0px width and 0px height, and will skip it in the Tab order.</p>
+		
+		<a href="http://example.com/"><img src="http://placekitten.com/200/400" width="200" height="400" class="floated"></a>
+		
+		<h2>Floated image link with defined link area</h2>
+		
+		<p>Browsers will interpret this link to have width and height that matches the image it wraps.</p>
+		
+		<a href="http://example.com/" class="block-300-400"><img src="http://placekitten.com/300/400" width="300" height="400" class="floated"></a>
+	</body>
+</html>
