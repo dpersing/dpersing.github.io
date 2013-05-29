@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<title>Kids Characters</title>
+		
+		<!-- based on /media/characters -->
+		
+		<style>
+			.screen-reader-only { /* AT-accessible, visually-hidden class */
+			  top: auto; 
+			  width: 1px; 
+			  height: 1px; 
+				left: -10000px; 
+				overflow: hidden; 
+				position: absolute;
+			}
+		
+			.tile {
+				position: relative;
+				width: 145px;
+				height: 210px;
+				display: inline-block;
+				margin: 0 10px;
+			}
+			
+			.tile h2 {
+				margin: 0;
+				position: absolute;
+				top: 0;
+			}
+			
+			.tile a {
+				display: block;
+				width: 145px;
+				height: 210px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: #000;
+				text-decoration: none;
+			}
+			
+			.tile a:hover,
+			.tile a:focus { /* :focus covers keyboard-only users */
+				background: #ff0000;
+				color: #fff;
+			}
+			
+			.tile img {
+				width: 100%;
+				height: 210px;
+			}
+			
+			.tile a .hover-info { /* displays offscreen while being available to screen readers */
+				position:absolute;
+				left:-10000px;
+				top:auto;
+				width:1px;
+				height:1px;
+				overflow:hidden;
+			}
+			
+			.tile a:hover .hover-info,
+			.tile a:focus .hover-info {
+				left: 0;
+				bottom: 0;
+				height: auto;
+				width: 145px;
+				overflow: visible;
+			}
+			</style>
+	</head>
+	<body>
+		<!-- global nav -->
+	
+			<h1>Kids Characters</h1>
+		
+			<div class="tile">
+				<a href="/character/name/collection/url">
+					<h2>Character Name</h2>
+					<!-- current <dl> implementation implies that the number is being defined by "items" -->
+					<span class="hover-info">15 items</span>
+				</a>
+				<img src="http://placekitten.com/200/300" alt="illustration of Character Name">
+			</div>
+			
+			<div class="tile">
+				<a href="/another/character/name/collection/url">
+					<h2>Another Character Name</h2>
+					<!-- current <dl> implementation implies that the number is being defined by "items" -->
+					<span class="hover-info">20 items</span>
+				</a>
+				<img src="http://placekitten.com/200/350" alt="illustration of Another Character Name">
+			</div>
+		
+		<!-- global footer -->
+	</body>
+</html>
