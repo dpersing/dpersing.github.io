@@ -10,3 +10,18 @@ body {
 footer {
 	padding: 20px 0 20px 0;
 }
+
+.july-4, .alert-info h4 {
+	color: #b34442;
+}
+
+a {
+	color: #0076b1;
+}
+
+/*
+.main ul {
+	display: inline-block;
+	vertical-align: top;
+}
+*/
