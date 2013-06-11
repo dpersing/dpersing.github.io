@@ -7,18 +7,25 @@
 		<style>
 			select { 
 				/* strips default style from select container and replaces styles */
-				background: url(img/arrow.png) no-repeat #fff;
-				background-position: right 0.8em;
-				border: 0;
-				border-radius: 0;
-				-webkit-appearance: none;
-				-moz-appearance: none;
+				background: transparent; /* clear default select background */
+				border: 0; /* clear default select border */
+				border-radius: 0; /* clear default select border-radius */
+				-webkit-appearance: none; /* clear Webkit default styles for arrow */
+				-moz-appearance: window; /* clear Firefox default styles for arrow */
 				font-size: 1.4em;
-				padding: 0.4em;
+				padding: 0.4em 0.6em 0.4em 0.4em;
 			}
 
-			select:before {
-				content: "\2193";
+			label {
+				position: relative;
+			}
+
+			label:after {
+				position: absolute;
+				right: 0.6em;
+				top: 0.01em;
+				color: #ff0000;
+				content: "\25BC";
 			}
 		</style>
 	</head>
@@ -26,21 +33,25 @@
 		<h1>Drop down style tests</h1>
 
 		<form>
-			<label for="select-element">Select option:</label>
+			<label for="select-element">Select option:
 			<select id="select-element">
 				<option>First select option</option>
 				<option>Second select option</option>
 				<option>Third select option</option>
 				<option>Fourth select option</option>
 			</select>
+			</label>
 		</form>
 
-		<p>Link menu option:</p>
 		<ul>
-			<li><a href="#first-option">First select option</a></li>
-			<li><a href="#second-option">Second select option</a></li>
-			<li><a href="#third-option">Third select option</a></li>
-			<li><a href="#fourth-option">Fourth select option</a></li>
+			<li>Safari on OSX: as expected</li>
+			<li>Chrome on OSX: as expected</li>
+			<li>Firefox on OSX: as expected</li>
+			<li>IE10 on Windows 8:</li>
+			<li>IE9 on Windows 7:</li>
+			<li>IE8 on Windows 7:</li>
+			<li>Firefox on Windows 8:</li>
+			<li>Firefox on Windows 7:</li>
 		</ul>
 	</body>
 </html>
