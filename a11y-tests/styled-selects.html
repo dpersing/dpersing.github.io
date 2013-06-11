@@ -9,13 +9,17 @@
 				/* strips default style from select container and replaces styles */
 				background: #aaa; /* clear default select background and replace with a color, gradient, image, etc. */
 				border: 0; /* clear default select border */
-				border-radius: 0.4em; /* clear default select border-radius */
+				border-radius: 0; /* clear default select border-radius */
 				/* -webkit-appearance: none; /* clear Webkit default styles for arrow */
 				/* -moz-appearance: window; clear Firefox default styles for arrow */
 				font-size: 1.4em;
 				padding: 0.4em;
 				margin: 0;
 				color: #000; /* white or light colors are not recommended since IE adds a white background to its dropdown, and the font color carries over to elements in the dropdown */
+			}
+
+			select:focus {
+				outline: 1px dotted #ff0000; /* standardizing focus to be the same as that for links */
 			}
 		</style>
 	</head>
