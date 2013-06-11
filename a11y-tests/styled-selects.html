@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Drop down style tests</title>
+		<meta charset="UTF-8">
+
+		<style>
+			select { 
+				/* strips default style from select container and replaces styles */
+				background: url(img/arrow.png) no-repeat #fff;
+				background-position: right 0.8em;
+				border: 0;
+				border-radius: 0;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				font-size: 1.4em;
+				padding: 0.4em;
+			}
+
+			select:before {
+				content: "\2193";
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Drop down style tests</h1>
+
+		<form>
+			<label for="select-element">Select option:</label>
+			<select id="select-element">
+				<option>First select option</option>
+				<option>Second select option</option>
+				<option>Third select option</option>
+				<option>Fourth select option</option>
+			</select>
+		</form>
+
+		<p>Link menu option:</p>
+		<ul>
+			<li><a href="#first-option">First select option</a></li>
+			<li><a href="#second-option">Second select option</a></li>
+			<li><a href="#third-option">Third select option</a></li>
+			<li><a href="#fourth-option">Fourth select option</a></li>
+		</ul>
+	</body>
+</html>
