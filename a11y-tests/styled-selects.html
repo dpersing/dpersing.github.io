@@ -7,55 +7,29 @@
 		<style>
 			select { 
 				/* strips default style from select container and replaces styles */
-				background: url(http://placekitten.com/600/300); /* clear default select background */
+				background: url(http://placekitten.com/400/300); /* clear default select background and replace with a color, gradient, image, etc. */
 				border: 0; /* clear default select border */
-				border-radius: 0; /* clear default select border-radius */
-				-webkit-appearance: none; /* clear Webkit default styles for arrow */
-				-moz-appearance: window; /* clear Firefox default styles for arrow */
+				border-radius: 0.4em; /* clear default select border-radius */
+				/* -webkit-appearance: none; clear Webkit default styles for arrow */
+				/* -moz-appearance: window; clear Firefox default styles for arrow */
 				font-size: 1.4em;
-				padding: 0.4em 1em 0.4em 0.4em;
+				padding: 0.4em;
+				margin: 0;
 				color: #fff;
 			}
-
-			/*
-			label {
-				position: relative;
-			}
-
-			label:after {
-				position: absolute;
-				right: 0.8em;
-				top: 0.01em;
-				color: #ff0000;
-				content: "\25BC";
-			}
-
-			*/
 		</style>
 	</head>
 	<body>
 		<h1>Drop down style tests</h1>
 
 		<form>
-			<label for="select-element">Select option:
+			<label for="select-element">Select option:</label>
 			<select id="select-element">
 				<option>First select option</option>
 				<option>Second select option</option>
 				<option>Third select option</option>
 				<option>Fourth select option</option>
 			</select>
-			</label>
 		</form>
-
-		<ul>
-			<li>Safari on OSX: as expected</li>
-			<li>Chrome on OSX: as expected</li>
-			<li>Firefox on OSX: as expected</li>
-			<li>IE10 on Windows 8:</li>
-			<li>IE9 on Windows 7:</li>
-			<li>IE8 on Windows 7:</li>
-			<li>Firefox on Windows 8:</li>
-			<li>Firefox on Windows 7:</li>
-		</ul>
 	</body>
 </html>
