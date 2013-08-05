@@ -1,6 +1,6 @@
 // method for detecting High Contrast Mode in Windows, based on example at http://blog.paciellogroup.com/2012/08/notes-on-accessible-css-image-sprites/
 
-window.onload = function HCTest() {
+function HCTest() {
 var objDiv, strColor, objFlag;
 
 //reference to img element used to check if images are disabled
