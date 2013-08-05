@@ -29,6 +29,6 @@ if (((objFlag.offsetWidth === 1 && objFlag.readyState === 'complete')||(objFlag.
 && (strColor === 'rgb(31,41,59)' || strColor === 'rgb(31, 41, 59)'))
 	{
 		// toggle off the "screen-reader-only" class
-		document.getElementById("high-contrast-text").className = document.getElementById("high-contrast-text").className.replace( /(?:^|\s)screen-reader-only(?!\S)/g , '' )
+		document.getElementById("high-contrast-text").className = document.getElementById("high-contrast-text").className.replace(/\bscreen-reader-only\b/,'');
 	}
 }
