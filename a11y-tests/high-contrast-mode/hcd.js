@@ -1,5 +1,3 @@
-// method for detecting High Contrast Mode in Windows, based on example at http://blog.paciellogroup.com/2012/08/notes-on-accessible-css-image-sprites/
-
 function HCTest() {
 var objDiv, strColor, objFlag;
 
@@ -23,12 +21,15 @@ document.body.removeChild(objDiv);
 
 //Check if we got back what we set (strColor== ??) If not we are in high contrast mode
 // Use .offsetwidth and .readyState (for IE) to check if images are enabled
-//If either images are disabled or high contrast is enabled (or both)...
+//If either images are disabled or high contrast is enabled (or both) the CSS stylesheet link will not be added to the page and the visually hidden text will be displayed in place of the missing background image
 
 if (((objFlag.offsetWidth === 1 && objFlag.readyState === 'complete')||(objFlag.offsetWidth === 1 && objFlag.readyState === undefined))
 && (strColor === 'rgb(31,41,59)' || strColor === 'rgb(31, 41, 59)'))
-	{
-		// toggle off the "screen-reader-only" class
-		document.getElementById("high-contrast-text").className = document.getElementById("high-contrast-text").className.replace(/\bscreen-reader-only\b/,'');
-	}
+{
+var objHead = document.getElementsByTagName('head');
+var objCSS = objHead[0].appendChild(document.createElement('link'));
+objCSS.rel = 'stylesheet';
+objCSS.href = 'alt.css';
+objCSS.type = 'text/css';
+}
 }
