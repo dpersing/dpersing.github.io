@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Tile example</title>
+		<style>
+			.visuallyhidden{border:none;clip:rect(0 0 0 0);height:0;margin:-1px;overflow:hidden;padding:0;position:absolute;width:0;}
+
+			.tile-content {
+				position: relative;
+				width: 400px; /* whatever the Tile's height and width in context */
+				height: 500px;
+			}
+
+			.tile-link {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section class="tile-content">
+			<figure>
+				<img src="http://placekitten.com/300/300" alt="A photo of Kitten Hotel">
+				<figcaption class="image-caption">270 booked in the last 24 hours</figcaption>
+			</figure>
+			<div>
+				<h4 class="tile-name">Kitten Hotel</h4>
+				<p>5.0 stars</p>
+				<p class="secondary">More info about this adorable hotel.</p>
+			</div>
+			<a class="tile-link" href="#"><span class="visuallyhidden">View Kitten Hotel</span></a>
+		</section>
+	</body>
+</html>
