@@ -1,0 +1,15 @@
+/* here's where our styles go */
+
+/* apply a natural box layout model to all elements
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+ */
+
+/* format for CSS
+
+selector {
+	property: value;
+}
+
+*/
