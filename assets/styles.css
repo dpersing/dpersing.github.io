@@ -53,22 +53,39 @@ body {
 	font-family: 'Lusitana', Georgia, Times, serif;
 	font-size: 1.2em;
 	padding: 1em;
-	line-height: 1.4em;
+	line-height: 1.2em;
 }
 
 h1 {
 	font-size: 2em;
-	margin: 0 0 1em 0;
+	margin: 0.4em 0 1em 0;
+	text-align: center;
 }
 
 a {
-	text-decoration: none;
 	font-weight: 800;
-	color: ;
+	color: #3bb20b;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, a:hover [class^="icon-"], a:focus [class^="icon-"] {
+	color: #ff4a00;
+}
 
+.gigs ul {
+	margin: 0 0 1em 0;
+}
+
+.gigs li {
+	border-bottom: 1px solid #666;
+	padding: 0.6em 0;
+}
+
+.gigs li:last-child {
+	border-bottom: 0;
+}
+
+.gigs li:first-letter {
+	text-transform: lowercase;
 }
 
 /* SR text */
@@ -98,6 +115,18 @@ a:hover, a:focus {
 .social ul li {
 	display: table-cell;
 	text-align: center;
+	padding-top: 0.2em;
+}
+
+.social a {
+	text-decoration: none;
+}
+
+.social li:hover, .social li:focus {
+	font-size: 1.2em;
+	padding-top: 0;
+	-webkit-transition: font-size 0.2s, padding-top 0.2s, -webkit-transform 0.2s;
+    transition: font-size 0.2s, padding-top 0.2s, -webkit-transform 0.2s;
 }
 
 @font-face {
@@ -119,6 +148,7 @@ a:hover, a:focus {
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
+	padding: 0.2em;
 
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
@@ -159,15 +189,30 @@ a .icon-linkedin {
 
 body {
 	width: 80%;
+	max-width: 700px;
 	margin: 0 auto;
 }
 
-section {
+section, img {
 	margin: 0 0 1em 0;
 }
 
-@media all and (max-width: 500px) {
-	body {
-		width: 100%;
+img {
+	width: 100%;
+	height: auto;
+}
+
+.social {
+	clear: both;
+}
+
+@media all and (min-width: 650px) {
+	img, .gigs {
+		float: left;
+		width: 50%;
+	}
+
+	.gigs {
+		padding-left: 2em;
 	}
 }
