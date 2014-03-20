@@ -4,6 +4,8 @@ Quick and dirty guide for testing keyboard-only support for native controls in u
 
 _Last test date: March 20, 2014_
 
+Please let me know if you find mistakes.
+
 **All interactive elements should receive keyboard focus with the Tab key. To move backwards to the previous element, use Shift + Tab.**
 
 Most browers receive the same keystrokes for manipulation, with a few gnarly exceptions:
