@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>aria-expanded test for menus</title>
+		<style>
+			/* all just for (un)pretties */
+			button {
+				border: 0;
+				background: 0;
+				font-family: Times, serif;
+				font-size: 1em;
+				text-decoration: underline;
+				color: #00f;
+				padding: 0;
+			}
+
+			li {
+				display: inline-block;
+			}
+
+			#submenu {
+				position: absolute;
+			}
+
+			#submenu li {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- based on http://www.3needs.org/en/testing/code/aria-expanded.html -->
+		<h1><code>aria-expanded</code> test for menus</h1>
+
+		<ul>
+			<li><button aria-expanded="false" id="menu" onclick="toggle('submenu', 'menu')">Button with submenu</button>
+				<ul style="display: none;" id="submenu">
+					<li><a href="#">Subnav 1</a></li>
+					<li><a href="#">Subnav 2</a></li>
+					<li><a href="#">Subnav 3</a></li>
+					<li><a href="#">Subnav 4</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Regular navigation link</a></li>
+		</ul>
+
+		<script type="text/javascript">
+			// toggle the visibility of the submenu and the aria-expanded state of its trigger
+		  function toggle(id, id2) {
+		    var menutime = document.getElementById(id);
+				if (menutime.style.display != 'none') {
+				  menutime.style.display = 'none';
+			    document.getElementById(id2).setAttribute('aria-expanded', 'false');
+			  }
+			  else {
+			  menutime.style.display = '';
+			  document.getElementById(id2).setAttribute('aria-expanded', 'true');
+				}
+		  }
+  	</script>
+	</body>
+</html>
