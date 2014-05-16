@@ -4,12 +4,15 @@ This year was my first AccessU (and my first trip to Austin!), and I attended se
 
 Here's the full class list: [AccessU 2014 Schedule](http://www.knowbility.org/v/accessu-course-list/John-Slatin-AccessU/3i/)
 
+You can also [read these notes in their original tweet form](https://twitter.com/search?f=realtime&q=%23AccessU%20from%3Adevonpersing).
+
 A few acronyms I use:
 
-* **a11y** is short for "accessibility".
+* **a11y** is short for accessibility.
 * **AT** is assitive technology, such as screen readers, braille readers, other text-to-something technologies, guided access, screen magnifiers, etc.
+* **SR** is screen reader.
 * **JS** is JavaScript.
-* **PwD** is a person with a disability (or more than one) or people with disabilities.
+* **PwD** is a _person_ with a disability or disabilities, or _people_ with disabilities.
 
 ## Monday
 
@@ -19,15 +22,21 @@ _Susann Keohane and Mary Jo Mueller_
 
 ### Modern Web Accessibility with JavaScript and WAI-ARIA
 
-_Paul Adam_
+_Paul J. Adam_
+[@pauljadam](https://twitter.com/pauljadam) on Twitter  
+[pauljadam.com](http://pauljadam.com/)
 
 ### Personas, Buy-in Sessions, and Tips to Bring Accessibility to Life
 
-_Shawn Henry_
+_Shawn Henry_  
+[@shawn_slh](https://twitter.com/shawn_slh) on Twitter
+[Profile at W3C WAI](http://www.w3.org/People/Shawn/)
 
 ### CSS3/JavaScript Selectors
 
-_Estelle Weyl_
+_Estelle Weyl_  
+[@standardista](https://twitter.com/standardista) on Twitter  
+[standardista.com](http://standardista.com/)
 
 [CSS3/JavaScript Selectors slides](http://estelle.github.io/selectors/)
 
@@ -39,7 +48,7 @@ _Estelle Weyl_
 
 ### iAccessibility (iOS/iPhone/iPad)
 
-_Paul Adam_
+_Paul J. Adam_
 
 [iAccessibility slides](http://pauljadam.com/iaccessibility/)
 
@@ -57,6 +66,7 @@ _Paul Adam_
 ### Consistency in Expert Accessibility Testing
 
 _Glenda Sims_
+[@goodwitch](https://twitter.com/goodwitch) on Twitter
 
 * Experts can spend wildly different amounts of time on the same task, and can report wildly different numbers of issues, depending on how they test and report. For example, Deque ran an experiment where 9 experts each tested the same page against WCAG. their tests lasted from 1 to 8.5 hours, numbers of errors reported ranged from 1 to more than 35. Part of what was learned was the need for better internal standards for testing, but also standarizing how errors and issues should be reported.
 * Just like regular code reviews for developers, consistency requires peer review for designers, devs, testers, and a11y experts.
@@ -76,7 +86,7 @@ _Glenda Sims_
 
 ### Android Web & Native Accessibility in 4.4 KitKat
 
-_Paul Adam_
+_Paul J. Adam_
 
 ## Wednesday
 
