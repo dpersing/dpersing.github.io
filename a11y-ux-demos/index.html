@@ -5,6 +5,7 @@
 
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/custom.css">
 	</head>
 	<body class="container-fluid">
 		<div class="page-header">
@@ -17,13 +18,62 @@
 			</div>
 			<div class="panel-body">
 				<h3>Contrast</h3>
-				<!-- color contrast example -->
+					
+					<div class="row">
+						<p class="lead nineninenine col-md-4">I'm a paragraph written in everyone's favorite gray, #999. Unfortunately, I don't pass WCAG 2.0 Level AA standards for color contrast at an font size or weight on a white background. <span aria-hidden="true">:(</span><span class="sr-only">frowny face</span></p>
 
-				<h3>Color and Text</h3>
-				<!-- color + text, color without text -->
+						<p class="lead sixninenine col-md-4">I'm a paragraph written in a nice dusty teal, #699. I pass for text that's big (18pt or larger) or <strong class="small-bold">biggish and bold</strong> (14pt and larger and bold) against a white background.</p>
+
+						<p class="lead eggplant col-md-4">I'm a paragraph written in a sort of eggplant color, #637, that passes for text of all sizes on a white background.</p>
+					</div>
+
+				<h3>Color and (Con)Text</h3>
+				
+					<p class="lead">Use color or iconography to convey information or feeling, along with text representation of the same information.</p>
+
+					<div class="row">
+
+						<div class="col-md-4">
+							<p class="lead text-primary"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save Post</p>
+							<p class="lead text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Post Saved</p>
+						</div>
+
+						<div class="col-md-4">
+							<p class="lead text-danger"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> Favorite Post<p>
+							<p class="lead text-danger"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Favorited</p>
+						</div>
+
+						<div class="col-md-4">
+							<p class="lead text-warning bg-warning"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Warning</p>
+							<p class="lead text-info bg-info"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Don't Forget</p>
+						</div>
+					</div>				
 
 				<h3>Showing State</h3>
-				<!-- :focus and :hover -->
+
+					<div class="row">
+						<div class="col-md-6">
+							<p role="presentation">
+								<button type="button" class="btn-lg no-focus">Button with no focus style</button>
+							</p>
+
+							<p role="presentation">
+								<button type="button" class="btn-lg">Button with browser default focus style</button>
+							</p>
+
+							<p role="presentation">
+								<button type="button" class="btn-lg custom-focus">Button with browser default and custom focus style</button>
+							</p>
+						</div>
+
+						<div class="col-md-6">
+							<p role="presentation"><a href="#" class="no-focus">Link with no focus style</a></p>
+
+							<p role="presentation"><a href="#">Link with browser default focus style</a></p>
+
+							<p role="presentation"><a href="#" class="custom-focus">Link with browser default and custom focus style</a></p>
+						</div>
+					</div>
 			</div>
 		</div>
 
@@ -42,10 +92,14 @@
 			</div>
 			<div class="panel-body">
 				<h3><code>alt</code> Text</h3>
-				<!-- alt example -->
+				
+				<img src="http://placekitten.com/g/500/400" alt="Black and white photo of a fuzzy and confused-looking kitten" class="img-rounded img-responsive">
 
-				<h3>Captions and descriptions</h3>
-				<!-- caption example with empty alt -->
+				<h3>Captions</h3>
+				<figure>
+					<img src="http://placekitten.com/g/500/400" alt="" class="img-rounded img-responsive">
+					<figcaption class="bg-primary">Black and white photo of a fuzzy and confused-looking kitten</figcaption>
+				</figure>
 			</div>
 		</div>
 

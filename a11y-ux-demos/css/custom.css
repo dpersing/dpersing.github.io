@@ -1,0 +1,54 @@
+/* contrast example */
+
+.nineninenine {
+	color: #999;
+}
+
+.sixninenine {
+	color: #699;
+	font-size: 24px;
+}
+
+.eggplant {
+	color: #637;
+}
+
+.small-bold {
+	font-size: 18px;
+}
+
+/* focus example */
+
+.no-focus:focus {
+	outline: 0;
+}
+
+button.custom-focus:focus, button.custom-focus:hover {
+	background-color: #5cb85c;
+}
+
+a.custom-focus:focus, a.custom-focus:hover {
+	color: #398d09;
+}
+
+a {
+	text-decoration: underline;
+}
+
+a:hover, a:focus {
+	color: #428bca;
+}
+
+/* image text examples */
+
+figure {
+	position: relative;
+}
+
+figcaption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 6px;
+	border-radius: 6px;
+}
