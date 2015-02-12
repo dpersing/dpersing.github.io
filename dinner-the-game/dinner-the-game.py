@@ -16,18 +16,16 @@
 import random
 
 class Player(object):
-	def inheritence(self):
-		print "I'm a player!"
+	pass
 
 class Ghost(Player):
-	def inheritence(self):
-		print "I'm a player who is a ghost!"
+	pass
 
 class Monster(object):
 
 	# randomly generate some monster qualities
 	monster_kind = [
-		"owl",
+		"gingerbread golem",
 		"robot",
 		"starfish",
 		"werebear",
@@ -79,9 +77,11 @@ class Monster(object):
 
 	# build a monster
 	def create_monster(self):
-		print "The dungeon contains a %s %s. It is %s %s." % (
+		print "The dungeon contains a %s %s." % (
 			Monster.random_monster_size,
 			Monster.random_monster_kind,
+		)
+		print "It is %s %s." % (
 			Monster.random_monster_action,
 			Monster.random_monster_mood
 		)
@@ -90,23 +90,17 @@ class Engine(object):
 	pass
 
 class Zone(object):
-	def inheritence(self):
-		print "I'm a zone!"
+	pass
 
 class Sidewalk(Zone):
-	def inheritence(self):
-		print "I'm a zone that is a sidewalk!"
+	pass
 
 class Restaurant(Zone):
-	def inheritence(self):
-		print "I'm a zone that is a restaurant!"
+	pass
 
 class Dungeon(Zone):
 
-	def inheritence(self):
-		print "I'm a zone that is a dungeon!"
-
-	# make a Dungeon have a Monster
+	# make a Dungeon spawn a Monster
 	def __init__(self):
 		self.monster = Monster()
 
@@ -114,24 +108,19 @@ class Dungeon(Zone):
 		self.monster.create_monster()
 
 class DungeonA(Dungeon):
-	def inheritence(self):
-		print "I'm a zone that is a dungeon that is Dungeon A!"
+	pass
 
 class DungeonB(Dungeon):
-	def inheritence(self):
-		print "I'm a zone that is a dungeon that is Dungeon B!"
+	pass
 
 class DungeonC(Dungeon):
-	def inheritence(self):
-		print "I'm a zone that is a dungeon that is Dungeon C!"
+	pass
 
 class Escape(Zone):
-	def inheritence(self):
-		print "I'm a zone that is the escape!"
+	pass
 
 class Death(Zone):
-	def inheritence(self):
-		print "I'm a zone that is death!"
+	pass
 
 class Map(object):
 
@@ -146,6 +135,6 @@ class Map(object):
 		'death' : Death()
 	}
 
-# test to call a Monster in a Dungeon
+# test to call a Monster in a given Dungeon
 dungeon_a = DungeonA()
 dungeon_a.create_monster()
