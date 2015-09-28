@@ -16,20 +16,40 @@
 
 		<p>Tested with <strong>Firefox 41.0</strong> and <strong>NVDA 2015.3</strong> on <strong>Windows 7</strong>, to see how iframes behave when accessed.</p>
 
+		<p>The iframe output:</p>
+
+		<code>
+			&lt;iframe title="This is the iframe title attribute" src="http://simplyaccessible.com" width="420" height="300"&gt;<br>
+		  	&lt;p&gt;Here is a text fallback for the iframe, with &lt;a href="http://simplyaccessible.com"&gt;a link&lt;/a&gt;.&lt;/p&gt;<br>
+			&lt;/iframe&gt;
+		</code>
+
 		<h2>Down arrow (browse mode)</h2>
 
 			<p>When accessing the iframe via the down arrow, NVDA reads: <q>iframe banner landmark navigation landmark button open menu</q></p>
+
+			<p>NVDA identifies the iframe, drills down through any ARIA role information, and reads the first element in the iframe. It does not read the iframe's <code>title</code> attribute or the <code>title</code> of the iframe content. Additionally, it identifies the button and then reads its label, instead of the other way around.</p>
 
 		<h2>M (browse mode)</h2>
 
 			<p>When accessing the iframe via the M key, NVDA reads: <q>This is the iframe title attribute iframe banner landmark navigation landmark open menu button</q></p>
 
+			<p>NVDA identifies the iframe, reads the iframe's <code>title</code> value, drills down through any ARIA role information, and reads the first element in the iframe. It does not read the <code>title</code> of the iframe content.</p>
+
 		<h2>Tab (browse mode)</h2>
 
-			<p>Tab goes to the iframe container and no content is read. Pressing Tab again moves focus to the first focusable element and NVDA reads: <q>This is the iframe title attribute iframe banner landmark navigation landmark open menu button</q></p>
+			<p>Tab goes to the iframe container itself even when no <code>tabindex</code> is present, and no content is read. Pressing Tab again moves focus to the first focusable element and NVDA reads: <q>This is the iframe title attribute iframe banner landmark navigation landmark open menu button</q></p>
+
+			<p>On the second Tab press NVDA reads the iframe's <code>title</code> value, identifies the iframe, drills down through any ARIA role information, and reads the first element in the iframe. It does not read the <code>title</code> of the iframe content.</p>
 
 		<h2>Tab (forms mode)</h2>
 
-			<p>Tab goes to the iframe container and NVDA reads: <q>This is the iframe title attribute iframe this is the iframe title attribute document</q>.</p>
+			<p>Tab goes to the iframe container even if no <code>tabindex</code> is present and NVDA reads: <q>This is the iframe title attribute iframe this is the iframe title attribute document</q>.</p>
+
+			<p>NVDA reads the iframe's <code>title</code> attribute, identifies the iframe, speaks the iframe's <code>title</code> attribute a second time, then identifies the content of the iframe as a document.</p>
+
+		<h2>Recommendation</h2>
+
+		<p>NVDA identifies iframes and iframe content differently depending on how users navigate to the iframe. Since users will have different experiences based on how they access the content, refraining from using iframes is recommended.</p>
 	</body>
 </html>
