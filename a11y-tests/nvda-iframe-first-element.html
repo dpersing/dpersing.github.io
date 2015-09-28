@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>NVDA iframe test</title>
+	</head>
+	<body>
+		<iframe title="This is the iframe title attribute" src="http://simplyaccessible.com" width="420" height="300">
+		  <p>Here is a text fallback for the iframe, with <a href="http://simplyaccessible.com">a link</a>.</p>
+		</iframe>
+
+		<h1>NVDA <code>iframe</code> test</h1>
+
+		<p><a href="#">Stop link</a></p>
+
+		<p>Tested with <strong>Firefox 41.0</strong> and <strong>NVDA 2015.3</strong> on <strong>Windows 7</strong>, to see how iframes behave when accessed as the first element on the page.</p>
+
+		<h2>On page load (browse mode)</h2>
+
+			<q>NVDA iframe test busy iframe banner landmark navigation landmark button open menu...</q>
+
+		<h2>Shift+M (browse mode)</h2>
+
+			<q>This is the iframe title attribute iframe banner landmark navigation landmark open menu button</q>
+
+		<h2>Tab (browse mode)</h2>
+
+			<p>From the top of the page, pressing tab sends focus to the whole page and reads <q>NVDA iframe test document button open menu</q>. Interacting with the button that is read works, although focus wasn't visibly moved to it. If focus is moved back to this tab stop with Shift + Tab, nothing is read.<p>
+
+			<p>Pressing Tab twice from the top of the page sends focus to the iframe container and no content is read, but pressing Enter or space interacts with the first element, a button, although it does not have visible focus. Pressing Shift + Tab to move back to this tab stop does not read anything.</p>
+
+			<p>Pressing Tab three times sends focus to the first focusable element but does not read it. Pressing Shift + Tab back to this tab stop reads the element.</p>
+
+			<p>If NVDA is automatically reading content from the top of the page on load and the Tab key is pressed, focus moves as expected to the next focusable element after the element currently being read.</p>
+
+			<p>On the first tab, no content is read. On the second, NVDA reads the context of the first element in its <code>body</code> that receives focus, and the element's properties.</p>
+
+		<h2>Tab (forms mode)</h2>
+
+			<q>This is the iframe title attribute iframe this is the iframe title attribute document</q>
+	</body>
+</html>

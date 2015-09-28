@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>NVDA iframe test</title>
+	</head>
+	<body>
+		<h1>NVDA <code>iframe</code> test</h1>
+
+		<p><a href="#">Stop link</a></p>
+
+		<iframe title="This is the iframe title attribute" src="http://simplyaccessible.com" width="420" height="300">
+		  <p>Here is a text fallback for the iframe, with <a href="http://simplyaccessible.com">a link</a>.</p>
+		</iframe>
+
+		<p><a href="#">Stop link</a></p>
+
+		<p>Tested with <strong>Firefox 41.0</strong> and <strong>NVDA 2015.3</strong> on <strong>Windows 7</strong>, to see how iframes behave when accessed.</p>
+
+		<h2>Down arrow (browse mode)</h2>
+
+			<p>When accessing the iframe via the down arrow, NVDA reads: <q>iframe banner landmark navigation landmark button open menu</q></p>
+
+		<h2>M (browse mode)</h2>
+
+			<p>When accessing the iframe via the M key, NVDA reads: <q>This is the iframe title attribute iframe banner landmark navigation landmark open menu button</q></p>
+
+		<h2>Tab (browse mode)</h2>
+
+			<p>Tab goes to the iframe container and no content is read. Pressing Tab again moves focus to the first focusable element and NVDA reads: <q>This is the iframe title attribute iframe banner landmark navigation landmark open menu button</q></p>
+
+		<h2>Tab (forms mode)</h2>
+
+			<p>Tab goes to the iframe container and NVDA reads: <q>This is the iframe title attribute iframe this is the iframe title attribute document</q>.</p>
+	</body>
+</html>
