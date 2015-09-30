@@ -68,6 +68,10 @@ h2 {
 	border-bottom-left-radius: 0;
 }
 
+a {
+	text-decoration: underline;
+}
+
 /* footer */
 
 .page-footer {
